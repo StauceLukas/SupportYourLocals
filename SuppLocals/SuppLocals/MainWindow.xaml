@@ -24,6 +24,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
             <RowDefinition Height="20"/>
             <!--4-->
 
@@ -31,17 +32,28 @@
 
         <!--Create PushPins-->
         <StackPanel Grid.Column="1" Grid.Row="1" MinWidth="150" Orientation="Vertical" Margin="0 0 10 0">
+            <TextBlock Text="Service type" Padding="5" HorizontalAlignment="Center" />
+            <ComboBox x:Name="selectedServiceCreate"/>
+
             <TextBlock Text="Address" Padding="5" HorizontalAlignment="Center" />
             <TextBox x:Name="addressText" Height="20" TextWrapping="NoWrap"/>
             <Button x:Name="confirmBtn" Click="addPushPin" Content="Confirm"/>
         </StackPanel>
+        
+        <!--Filters-->
 
-        <!--Added PushPins-->
+        <StackPanel Grid.Column="1" Grid.Row="4" MinWidth="150" Orientation="Vertical" Margin="0 0 10 0">
+            <TextBlock Text="Filter:" Padding="5" HorizontalAlignment="Center" />
+            <ComboBox x:Name="filterListBox" SelectionChanged="updateServiceListAndMap"/>
+        </StackPanel>
 
-        <ListBox x:Name="adressesList" Grid.Column="2" Grid.Row="1" Grid.RowSpan="3" MinWidth="150" Margin="0 0 10 0"/>
+        <!--Services list-->
+
+        <ListBox x:Name="servicesListBox" Grid.Column="2" Grid.Row="1" Grid.RowSpan="4" MinWidth="150" Margin="0 0 10 0"
+                 SelectionMode="Single"/>
 
         <!--Map-->
-        <m:Map  Grid.Column="4" Grid.Row="1" Grid.RowSpan="3"
+        <m:Map  Grid.Column="4" Grid.Row="1" Grid.RowSpan="4"
             x:Name="myMap" CredentialsProvider="vuOU7tN47KBhly1BAyhi~SKpEroFcVqMGYOJVSj-2HA~AhGXS-dV_H6Ofvn920LLMyvxfUUaLfjpZTD54fSc3WO-qRE7x6225O22AP_0XjDn"
             Mode="Road" Center="54.68,25.27" ZoomLevel="12" Heading="0">
         </m:Map>
