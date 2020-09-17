@@ -1,0 +1,77 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Paulius\\Desktop\\Studijos\\.NET\\Support Locals\\Support locals MasterBranch\\SuppLocals\\SuppLocals\\SuppLocals.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Paulius\\Desktop\\Studijos\\.NET\\Support Locals\\Support locals MasterBranch\\SuppLocals\\SuppLocals\\SuppLocals.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Paulius\\Desktop\\Studijos\\.NET\\Support Locals\\Support locals MasterBranch\\SuppLocals\\SuppLocals\\SuppLocals.csproj",
+        "projectName": "SuppLocals",
+        "projectPath": "C:\\Users\\Paulius\\Desktop\\Studijos\\.NET\\Support Locals\\Support locals MasterBranch\\SuppLocals\\SuppLocals\\SuppLocals.csproj",
+        "packagesPath": "C:\\Users\\Paulius\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Paulius\\Desktop\\Studijos\\.NET\\Support Locals\\Support locals MasterBranch\\SuppLocals\\SuppLocals\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Paulius\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Geocoding.Core": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
+            "Geocoding.Microsoft": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
