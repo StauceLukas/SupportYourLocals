@@ -6,7 +6,7 @@ namespace SuppLocals
 {
     public enum ServiceType
     {
-        FOOD,                   //Red Pin
+        FOOD = 0,                   //Red Pin
         CAR_REPAIR,             //Green Pin
         OTHER                   //Blue Pin
     }
