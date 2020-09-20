@@ -23,3 +23,28 @@ C:\Users\Paulius\Desktop\Studijos\.NET\Support Locals\Support locals MasterBranc
 C:\Users\Paulius\Desktop\Studijos\.NET\Support Locals\Support locals MasterBranch\SuppLocals\SuppLocals\obj\Debug\netcoreapp3.1\SuppLocals.dll
 C:\Users\Paulius\Desktop\Studijos\.NET\Support Locals\Support locals MasterBranch\SuppLocals\SuppLocals\obj\Debug\netcoreapp3.1\SuppLocals.pdb
 C:\Users\Paulius\Desktop\Studijos\.NET\Support Locals\Support locals MasterBranch\SuppLocals\SuppLocals\obj\Debug\netcoreapp3.1\SuppLocals.genruntimeconfig.cache
+C:\Users\Kompiuteris\Source\Repos\HabaHaba05\SupportYourLocals\SuppLocals\SuppLocals\bin\Debug\netcoreapp3.1\SuppLocals.exe
+C:\Users\Kompiuteris\Source\Repos\HabaHaba05\SupportYourLocals\SuppLocals\SuppLocals\bin\Debug\netcoreapp3.1\SuppLocals.deps.json
+C:\Users\Kompiuteris\Source\Repos\HabaHaba05\SupportYourLocals\SuppLocals\SuppLocals\bin\Debug\netcoreapp3.1\SuppLocals.runtimeconfig.json
+C:\Users\Kompiuteris\Source\Repos\HabaHaba05\SupportYourLocals\SuppLocals\SuppLocals\bin\Debug\netcoreapp3.1\SuppLocals.runtimeconfig.dev.json
+C:\Users\Kompiuteris\Source\Repos\HabaHaba05\SupportYourLocals\SuppLocals\SuppLocals\bin\Debug\netcoreapp3.1\SuppLocals.dll
+C:\Users\Kompiuteris\Source\Repos\HabaHaba05\SupportYourLocals\SuppLocals\SuppLocals\bin\Debug\netcoreapp3.1\SuppLocals.pdb
+C:\Users\Kompiuteris\Source\Repos\HabaHaba05\SupportYourLocals\SuppLocals\SuppLocals\bin\Debug\netcoreapp3.1\Geocoding.Core.dll
+C:\Users\Kompiuteris\Source\Repos\HabaHaba05\SupportYourLocals\SuppLocals\SuppLocals\bin\Debug\netcoreapp3.1\Geocoding.Microsoft.dll
+C:\Users\Kompiuteris\Source\Repos\HabaHaba05\SupportYourLocals\SuppLocals\SuppLocals\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Kompiuteris\Source\Repos\HabaHaba05\SupportYourLocals\SuppLocals\SuppLocals\bin\Debug\netcoreapp3.1\Microsoft.Maps.MapControl.WPF.dll
+C:\Users\Kompiuteris\Source\Repos\HabaHaba05\SupportYourLocals\SuppLocals\SuppLocals\bin\Debug\netcoreapp3.1\Microsoft.Maps.MapControl.WPF.xml
+C:\Users\Kompiuteris\Source\Repos\HabaHaba05\SupportYourLocals\SuppLocals\SuppLocals\obj\Debug\netcoreapp3.1\SuppLocals.csprojAssemblyReference.cache
+C:\Users\Kompiuteris\Source\Repos\HabaHaba05\SupportYourLocals\SuppLocals\SuppLocals\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\Kompiuteris\Source\Repos\HabaHaba05\SupportYourLocals\SuppLocals\SuppLocals\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\Kompiuteris\Source\Repos\HabaHaba05\SupportYourLocals\SuppLocals\SuppLocals\obj\Debug\netcoreapp3.1\SuppLocals_MarkupCompile.cache
+C:\Users\Kompiuteris\Source\Repos\HabaHaba05\SupportYourLocals\SuppLocals\SuppLocals\obj\Debug\netcoreapp3.1\SuppLocals_MarkupCompile.lref
+C:\Users\Kompiuteris\Source\Repos\HabaHaba05\SupportYourLocals\SuppLocals\SuppLocals\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Users\Kompiuteris\Source\Repos\HabaHaba05\SupportYourLocals\SuppLocals\SuppLocals\obj\Debug\netcoreapp3.1\SuppLocals.g.resources
+C:\Users\Kompiuteris\Source\Repos\HabaHaba05\SupportYourLocals\SuppLocals\SuppLocals\obj\Debug\netcoreapp3.1\SuppLocals.AssemblyInfoInputs.cache
+C:\Users\Kompiuteris\Source\Repos\HabaHaba05\SupportYourLocals\SuppLocals\SuppLocals\obj\Debug\netcoreapp3.1\SuppLocals.AssemblyInfo.cs
+C:\Users\Kompiuteris\Source\Repos\HabaHaba05\SupportYourLocals\SuppLocals\SuppLocals\obj\Debug\netcoreapp3.1\SuppLocals.csproj.CoreCompileInputs.cache
+C:\Users\Kompiuteris\Source\Repos\HabaHaba05\SupportYourLocals\SuppLocals\SuppLocals\obj\Debug\netcoreapp3.1\SuppLocals.csproj.CopyComplete
+C:\Users\Kompiuteris\Source\Repos\HabaHaba05\SupportYourLocals\SuppLocals\SuppLocals\obj\Debug\netcoreapp3.1\SuppLocals.dll
+C:\Users\Kompiuteris\Source\Repos\HabaHaba05\SupportYourLocals\SuppLocals\SuppLocals\obj\Debug\netcoreapp3.1\SuppLocals.pdb
+C:\Users\Kompiuteris\Source\Repos\HabaHaba05\SupportYourLocals\SuppLocals\SuppLocals\obj\Debug\netcoreapp3.1\SuppLocals.genruntimeconfig.cache
