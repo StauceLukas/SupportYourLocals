@@ -29,6 +29,12 @@
             <!--4-->
 
         </Grid.RowDefinitions>
+        
+        <!--Place for a hyperlink to this site: https://lrv.lt/en-->
+        <Rectangle Grid.ColumnSpan="6" Fill="LightGray"/>
+        <TextBlock Text="All the information related to COVID-19 regulations. " HorizontalAlignment="Center" Grid.ColumnSpan="6" FontSize="13">
+           <Hyperlink Foreground="Black" NavigateUri="https://lrv.lt/en" RequestNavigate="hyperlinkRequestNavigate">Read More</Hyperlink>
+        </TextBlock>
 
         <!--Create PushPins-->
         <StackPanel Grid.Column="1" Grid.Row="1" MinWidth="150" Orientation="Vertical" Margin="0 0 10 0">
