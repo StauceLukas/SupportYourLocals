@@ -89,9 +89,11 @@
                 </StackPanel>
 
             </StackPanel>
+
+            <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Width="32" Height="25" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left"  Background ="White">?</Button>
         </StackPanel>
 
-        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Width="32" Height="25" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left"  Background ="White">?</Button>
+        
         <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Width="32" Height="25" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right"  Background ="White" Click="buttonClick">☰</Button>
 
 
