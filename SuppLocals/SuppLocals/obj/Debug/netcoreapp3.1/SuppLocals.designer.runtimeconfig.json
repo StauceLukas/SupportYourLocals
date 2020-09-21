@@ -7,7 +7,12 @@
     },
     "additionalProbingPaths": [
       "C:\\Users\\Kompiuteris\\.dotnet\\store\\|arch|\\|tfm|",
+<<<<<<< Updated upstream
       "C:\\Users\\Kompiuteris\\.nuget\\packages"
+=======
+      "C:\\Users\\Paulius\\.nuget\\packages",
+      "C:\\Microsoft\\Xamarin\\NuGet"
+>>>>>>> Stashed changes
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true
