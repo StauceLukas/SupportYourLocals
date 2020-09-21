@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Maps.MapControl.WPF;
+using System;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
@@ -21,8 +22,8 @@ namespace SuppLocals
         public String address;
 
         //Latitude and Longitude
-        public double latitude;
-        public double longitude;
+        public Location location;
+
 
     }
 }

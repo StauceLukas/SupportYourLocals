@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Maps.MapControl.WPF;
+using System;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
@@ -8,12 +9,11 @@ namespace SuppLocals.Services
 {
     public class OtherService : Service
     {
-        public OtherService(String address, double latitude, double longitude)
+        public OtherService(String address, Location location)
         {
             color = new SolidColorBrush(Color.FromRgb(0, 0, 255));
             this.address = address;
-            this.latitude = latitude;
-            this.longitude = longitude;
+            this.location = location;
         }
     }
 }

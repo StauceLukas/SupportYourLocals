@@ -24,7 +24,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="150"/>
             <RowDefinition Height="20"/>
             <!--4-->
 
@@ -39,10 +39,10 @@
         <!--Create PushPins-->
         <StackPanel Grid.Column="1" Grid.Row="1" MinWidth="150" Orientation="Vertical" Margin="0 0 10 0">
             <TextBlock Text="Service type" Padding="5" HorizontalAlignment="Center" />
-            <ComboBox x:Name="selectedServiceCreate"/>
+            <ComboBox x:Name="createServiceCB"/>
 
             <TextBlock Text="Address" Padding="5" HorizontalAlignment="Center" />
-            <TextBox x:Name="addressText" Height="20" TextWrapping="NoWrap"/>
+            <TextBox x:Name="addressTextBox" Height="20" TextWrapping="NoWrap"/>
             <Button x:Name="confirmBtn" Click="addPushPin" Content="Confirm"/>
         </StackPanel>
         
@@ -50,12 +50,21 @@
 
         <StackPanel Grid.Column="1" Grid.Row="4" MinWidth="150" Orientation="Vertical" Margin="0 0 10 0">
             <TextBlock Text="Filter:" Padding="5" HorizontalAlignment="Center" />
-            <ComboBox x:Name="filterListBox" SelectionChanged="updateServiceListAndMap"/>
+            <ComboBox x:Name="filterServiceTypeCB" SelectionChanged="updateServiceListAndMap"/>
+            <CheckBox x:Name="filterDistanceCheck" Margin="0 10 0 0" Content="Filter by distance" Checked="distanceFilterChecked" Unchecked="distanceFilterUnchecked" />
+            <StackPanel x:Name="distanceFilterPanel" Margin="0 10 0 0" Visibility="Hidden">
+                <TextBox TextAlignment="Center" Text="{Binding ElementName=radiusSlider , Path=Value, StringFormat=N2 }"/>
+                <Slider x:Name="radiusSlider" Minimum="0" Maximum="20" Value="10" ValueChanged="radiusSlider_ValueChanged" Cursor="Hand" TickPlacement="None"/>
+                <DockPanel>
+                    <TextBlock TextAlignment="Left" Text="{Binding ElementName=radiusSlider , Path=Minimum}"> km.</TextBlock>
+                    <TextBlock TextAlignment="Right" Text="{Binding ElementName=radiusSlider , Path=Maximum}"> km.</TextBlock>
+                </DockPanel>
+            </StackPanel>
         </StackPanel>
 
         <!--Services list-->
 
-        <ListBox x:Name="servicesListBox" Grid.Column="2" Grid.Row="1" Grid.RowSpan="4" MinWidth="150" Margin="0 0 10 0"
+        <ListBox x:Name="servicesLB" Grid.Column="2" Grid.Row="1" Grid.RowSpan="4" MinWidth="150" Margin="0 0 10 0"
                  SelectionMode="Single" SelectionChanged="serviceChanged">
         </ListBox>
 
