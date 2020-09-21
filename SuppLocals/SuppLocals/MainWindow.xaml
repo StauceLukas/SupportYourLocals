@@ -10,7 +10,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <!--0-->
-            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
@@ -20,7 +20,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <!--0-->
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="25"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
@@ -29,29 +29,58 @@
             <!--4-->
 
         </Grid.RowDefinitions>
-        
+
         <!--Place for a hyperlink to this site: https://lrv.lt/en-->
         <Rectangle Grid.ColumnSpan="6" Fill="LightGray"/>
         <TextBlock Text="All the information related to COVID-19 regulations. " HorizontalAlignment="Center" Grid.ColumnSpan="6" FontSize="13">
            <Hyperlink Foreground="Black" NavigateUri="https://lrv.lt/en" RequestNavigate="hyperlinkRequestNavigate">Read More</Hyperlink>
         </TextBlock>
 
-        <!--Create PushPins-->
-        <StackPanel Grid.Column="1" Grid.Row="1" MinWidth="150" Orientation="Vertical" Margin="0 0 10 0">
-            <TextBlock Text="Service type" Padding="5" HorizontalAlignment="Center" />
-            <ComboBox x:Name="selectedServiceCreate"/>
+        <!--Menu-->
+            
+        <StackPanel x:Name="sPan" Grid.Column="0" Grid.Row="1" MinWidth="150" Orientation="Vertical" Margin="10 0 10 0" Visibility="Collapsed">
 
-            <TextBlock Text="Address" Padding="5" HorizontalAlignment="Center" />
-            <TextBox x:Name="addressText" Height="20" TextWrapping="NoWrap"/>
-            <Button x:Name="confirmBtn" Click="addPushPin" Content="Confirm"/>
-        </StackPanel>
-        
-        <!--Filters-->
+            <TextBlock Text="|Menu|" FontSize="30" HorizontalAlignment="Center" Margin="0 30 0 80"/>
 
-        <StackPanel Grid.Column="1" Grid.Row="4" MinWidth="150" Orientation="Vertical" Margin="0 0 10 0">
-            <TextBlock Text="Filter:" Padding="5" HorizontalAlignment="Center" />
-            <ComboBox x:Name="filterListBox" SelectionChanged="updateServiceListAndMap"/>
+            <Button Width="150" Height="30" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"  Background ="LightGray" >Services
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+
+            <Button Width="150" Height="30" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"  Background ="LightGray" >Reviews
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <!--Create PushPins-->
+
+            <StackPanel>
+                    <TextBlock Text="Service type" Padding="5" HorizontalAlignment="Center" />
+                    <ComboBox x:Name="selectedServiceCreate"/>
+
+                    <TextBlock Text="Address" Padding="5" HorizontalAlignment="Center" />
+                    <TextBox x:Name="addressText" Height="20" TextWrapping="NoWrap"/>
+                    <Button x:Name="confirmBtn" Click="addPushPin" Content="Confirm"/>
+                </StackPanel>
+
+                <!--Filters-->
+
+                <StackPanel Grid.Column="1" Grid.Row="4" MinWidth="150" Orientation="Vertical" Margin="0 0 10 0">
+                    <TextBlock Text="Filter:" Padding="5" HorizontalAlignment="Center" />
+                    <ComboBox x:Name="filterListBox" SelectionChanged="updateServiceListAndMap"/>
+                </StackPanel>
+
+            <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Width="32" Height="25" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left"  Background ="White" Click="buttonClick">?</Button>
         </StackPanel>
+
+        <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Width="32" Height="25" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right"  Background ="White" Click="buttonClick">☰</Button>
 
         <!--Services list-->
 
@@ -67,3 +96,4 @@
 
     </Grid>
 </Window>
+

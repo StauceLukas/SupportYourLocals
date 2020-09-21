@@ -65,6 +65,20 @@ namespace SuppLocals
 
         }
 
+        private void buttonClick(object sender, RoutedEventArgs e)
+        {
+            if (sPan.Visibility == Visibility.Collapsed)
+            {
+                sPan.Visibility = Visibility.Visible;
+                (sender as Button).Content = "☰";
+            }
+            else
+            {
+                sPan.Visibility = Visibility.Collapsed;
+                (sender as Button).Content = "☰";
+            }
+        }
+
         private void hyperlinkRequestNavigate(object sender, RequestNavigateEventArgs e)
         {
            //true if the shell should be used when starting the process; false if the process should be created directly from the executable file.
