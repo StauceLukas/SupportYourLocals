@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kompiuteris\\Source\\Repos\\HabaHaba05\\SupportYourLocals\\SuppLocals\\SuppLocals\\SuppLocals.csproj": {}
+    "C:\\Users\\Karolis\\Desktop\\SupportYourLocals\\SuppLocals\\SuppLocals\\SuppLocals.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kompiuteris\\Source\\Repos\\HabaHaba05\\SupportYourLocals\\SuppLocals\\SuppLocals\\SuppLocals.csproj": {
+    "C:\\Users\\Karolis\\Desktop\\SupportYourLocals\\SuppLocals\\SuppLocals\\SuppLocals.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kompiuteris\\Source\\Repos\\HabaHaba05\\SupportYourLocals\\SuppLocals\\SuppLocals\\SuppLocals.csproj",
+        "projectUniqueName": "C:\\Users\\Karolis\\Desktop\\SupportYourLocals\\SuppLocals\\SuppLocals\\SuppLocals.csproj",
         "projectName": "SuppLocals",
-        "projectPath": "C:\\Users\\Kompiuteris\\Source\\Repos\\HabaHaba05\\SupportYourLocals\\SuppLocals\\SuppLocals\\SuppLocals.csproj",
-        "packagesPath": "C:\\Users\\Kompiuteris\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kompiuteris\\Source\\Repos\\HabaHaba05\\SupportYourLocals\\SuppLocals\\SuppLocals\\obj\\",
+        "projectPath": "C:\\Users\\Karolis\\Desktop\\SupportYourLocals\\SuppLocals\\SuppLocals\\SuppLocals.csproj",
+        "packagesPath": "C:\\Users\\Karolis\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Karolis\\Desktop\\SupportYourLocals\\SuppLocals\\SuppLocals\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Kompiuteris\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Karolis\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -65,7 +68,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
