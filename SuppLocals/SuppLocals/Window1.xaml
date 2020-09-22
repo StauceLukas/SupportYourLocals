@@ -18,7 +18,7 @@
             VerticalAlignment="Top" 
             Width="202" 
             RenderTransformOrigin="1.789,0.592"
-            Height="30" 
+            Height="31" 
             />
         <Label 
             Content="Username" 
