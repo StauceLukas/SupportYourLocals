@@ -100,6 +100,34 @@ namespace SuppLocals
             }
         }
 
+        private void servicesClick(object sender, RoutedEventArgs e)
+        {
+            if (servicePanel.Visibility == Visibility.Collapsed)
+            {
+                servicePanel.Visibility = Visibility.Visible;
+                (sender as Button).Content = "Services";
+            }
+            else
+            {
+                servicePanel.Visibility = Visibility.Collapsed;
+                (sender as Button).Content = "Services";
+            }
+        }
+
+        private void filterClick(object sender, RoutedEventArgs e)
+        {
+            if (filterPanel.Visibility == Visibility.Collapsed)
+            {
+                filterPanel.Visibility = Visibility.Visible;
+                (sender as Button).Content = "Filters";
+            }
+            else
+            {
+                filterPanel.Visibility = Visibility.Collapsed;
+                (sender as Button).Content = "Filters";
+            }
+        }
+
         private void hyperlinkRequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             //true if the shell should be used when starting the process; false if the process should be created directly from the executable file.
@@ -108,7 +136,8 @@ namespace SuppLocals
             e.Handled = true;
         }
 
-        public void drawCircle(Microsoft.Maps.MapControl.WPF.Location Loc, double dRadius)
+
+     public void drawCircle(Microsoft.Maps.MapControl.WPF.Location Loc, double dRadius)
         {
 
             var locCollection = new LocationCollection();
