@@ -21,6 +21,7 @@ using Geocoding;
 using SuppLocals.Services;
 using System.Numerics;
 
+
 namespace SuppLocals
 {
     /// <summary>
@@ -38,7 +39,7 @@ namespace SuppLocals
         public double circleRadius = 0;
 
         public Microsoft.Maps.MapControl.WPF.Location myCurrLocation = new Microsoft.Maps.MapControl.WPF.Location(54.6872, 25.2797);
-       
+
         public MainWindow()
         {
             // Testing stuff
@@ -84,7 +85,7 @@ namespace SuppLocals
             filterServiceTypeCB.ItemsSource = types;
             filterServiceTypeCB.SelectedIndex = 0;
 
-          //  updateServiceListAndMap(null, null);
+            //  updateServiceListAndMap(null, null);
         }
         private void buttonClick(object sender, RoutedEventArgs e)
         {
@@ -105,12 +106,12 @@ namespace SuppLocals
             if (servicePanel.Visibility == Visibility.Collapsed)
             {
                 servicePanel.Visibility = Visibility.Visible;
-                (sender as Button).Content = "Services";
+                (sender as Button).Content = "Vendors";
             }
             else
             {
                 servicePanel.Visibility = Visibility.Collapsed;
-                (sender as Button).Content = "Services";
+                (sender as Button).Content = "Vendors";
             }
         }
 
@@ -128,6 +129,27 @@ namespace SuppLocals
             }
         }
 
+        private void reviewsClick(object sender, RoutedEventArgs e)
+        {
+            if (reviewsPanel.Visibility == Visibility.Collapsed)
+            {
+                reviewsPanel.Visibility = Visibility.Visible;
+                (sender as Button).Content = "Reviews";
+            }
+            else
+            {
+                reviewsPanel.Visibility = Visibility.Collapsed;
+                (sender as Button).Content = "Reviews";
+            }
+        }
+
+        private void MoreButtonClicked(object sender, RoutedEventArgs e)
+        {
+            ReviewsWindow rWindow = new ReviewsWindow();
+            rWindow.Show();
+        }
+
+
         private void hyperlinkRequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             //true if the shell should be used when starting the process; false if the process should be created directly from the executable file.
@@ -137,7 +159,7 @@ namespace SuppLocals
         }
 
 
-     public void drawCircle(Microsoft.Maps.MapControl.WPF.Location Loc, double dRadius)
+        public void drawCircle(Microsoft.Maps.MapControl.WPF.Location Loc, double dRadius)
         {
 
             var locCollection = new LocationCollection();
@@ -146,24 +168,24 @@ namespace SuppLocals
             //Convert location to radians based on
             var latitude = (Math.PI / 180) * (Loc.Latitude);
             var longitude = (Math.PI / 180) * (Loc.Longitude);
-         
+
             //Angular distance covered on earth surface
             var d = dRadius / EarthRadius;
-         
+
             for (int x = 0; x < 360; x++)
             {
-                var angle = x * (Math.PI/180); //radians
+                var angle = x * (Math.PI / 180); //radians
                 var latRadians = Math.Asin(Math.Sin(latitude) * Math.Cos(d) + Math.Cos(latitude) * Math.Sin(d) * Math.Cos(angle));
                 var lngRadians = longitude + Math.Atan2(Math.Sin(angle) * Math.Sin(d) * Math.Cos(latitude), Math.Cos(d) - Math.Sin(latitude) * Math.Sin(latRadians));
-         
+
                 //Get location of the point
                 var pt = new Microsoft.Maps.MapControl.WPF.Location(180.0 * latRadians / Math.PI, 180.0 * lngRadians / Math.PI);
-         
+
                 //Add the new calculatied poitn to the collection
                 locCollection.Add(pt);
             }
-            
-           
+
+
             MapPolygon polygon = new MapPolygon();
             polygon.Fill = new SolidColorBrush(Colors.AliceBlue);
             polygon.Stroke = new SolidColorBrush(Colors.Black);
@@ -173,10 +195,10 @@ namespace SuppLocals
 
             myMap.Children.Add(polygon);
         }
-       
+
         public async void addPushPin(object sender, RoutedEventArgs e)
         {
-            
+
             if (!validFields())
             {
                 MessageBox.Show("Please fill all text fields");
@@ -189,7 +211,7 @@ namespace SuppLocals
             Geocoding.IGeocoder geocoder = new BingMapsGeocoder("vuOU7tN47KBhly1BAyhi~SKpEroFcVqMGYOJVSj-2HA~AhGXS-dV_H6Ofvn920LLMyvxfUUaLfjpZTD54fSc3WO-qRE7x6225O22AP_0XjDn");
             IEnumerable<Address> addresses = await geocoder.GeocodeAsync(addressTextBox.Text);
 
-            if(addresses.Count() == 0)
+            if (addresses.Count() == 0)
             {
                 MessageBox.Show("We couldn't find that place, please try to clarify the address");
                 return;
@@ -198,11 +220,11 @@ namespace SuppLocals
             double lati = addresses.First().Coordinates.Latitude;
             double longi = addresses.First().Coordinates.Longitude;
 
-            pushPin.Location = new Microsoft.Maps.MapControl.WPF.Location(lati , longi);
+            pushPin.Location = new Microsoft.Maps.MapControl.WPF.Location(lati, longi);
             myMap.Children.Add(pushPin);
             myMap.Center = pushPin.Location;
 
- 
+
             switch (createServiceCB.SelectedIndex)
             {
                 //Food
@@ -216,7 +238,7 @@ namespace SuppLocals
                 //Car Repair
                 case 1:
                     {
-                        newService = new CarRepairService(addressTextBox.Text, new Microsoft.Maps.MapControl.WPF.Location(lati , longi) );
+                        newService = new CarRepairService(addressTextBox.Text, new Microsoft.Maps.MapControl.WPF.Location(lati, longi));
                         pushPin.Background = newService.color;
                         servicesList[(int)ServiceType.CAR_REPAIR].Add(newService);
                         break;
@@ -236,7 +258,7 @@ namespace SuppLocals
 
         private bool validFields()   //True if valid fields , false - invalid
         {
-            if(addressTextBox.Text == "")
+            if (addressTextBox.Text == "")
             {
                 return false;
             }
@@ -256,9 +278,11 @@ namespace SuppLocals
                     {
                         foreach (List<Service> serviceListTemp in servicesList)
                         {
-                            foreach (Service service in serviceListTemp) {
-                                if (!(bool)filterDistanceCheck.IsChecked || 
-                                    DistanceBetweenPlaces(service.location.Longitude , service.location.Latitude , myCurrLocation.Longitude , myCurrLocation.Latitude) <= circleRadius) {
+                            foreach (Service service in serviceListTemp)
+                            {
+                                if (!(bool)filterDistanceCheck.IsChecked ||
+                                    DistanceBetweenPlaces(service.location.Longitude, service.location.Latitude, myCurrLocation.Longitude, myCurrLocation.Latitude) <= circleRadius)
+                                {
                                     Pushpin pushpin = new Pushpin();
                                     pushpin.Location = new Microsoft.Maps.MapControl.WPF.Location(service.location.Latitude, service.location.Longitude);
                                     pushpin.Background = service.color;
@@ -274,7 +298,7 @@ namespace SuppLocals
                     {
                         foreach (Service service in servicesList[(int)ServiceType.FOOD])
                         {
-                            if (!(bool)filterDistanceCheck.IsChecked || 
+                            if (!(bool)filterDistanceCheck.IsChecked ||
                                 DistanceBetweenPlaces(service.location.Longitude, service.location.Latitude, myCurrLocation.Longitude, myCurrLocation.Latitude) <= circleRadius)
                             {
                                 Pushpin pushpin = new Pushpin();
@@ -291,7 +315,7 @@ namespace SuppLocals
                     {
                         foreach (Service service in servicesList[(int)ServiceType.CAR_REPAIR])
                         {
-                            if (!(bool)filterDistanceCheck.IsChecked || 
+                            if (!(bool)filterDistanceCheck.IsChecked ||
                                 DistanceBetweenPlaces(service.location.Longitude, service.location.Latitude, myCurrLocation.Longitude, myCurrLocation.Latitude) <= circleRadius)
                             {
                                 Pushpin pushpin = new Pushpin();
@@ -308,7 +332,7 @@ namespace SuppLocals
                     {
                         foreach (Service service in servicesList[(int)ServiceType.OTHER])
                         {
-                            if ( !(bool)filterDistanceCheck.IsChecked ||
+                            if (!(bool)filterDistanceCheck.IsChecked ||
                                 DistanceBetweenPlaces(service.location.Longitude, service.location.Latitude, myCurrLocation.Longitude, myCurrLocation.Latitude) <= circleRadius)
                             {
                                 Pushpin pushpin = new Pushpin();
@@ -320,7 +344,7 @@ namespace SuppLocals
                         }
                         break;
                     }
-                    
+
             }
             if ((bool)filterDistanceCheck.IsChecked)
             {
@@ -346,7 +370,7 @@ namespace SuppLocals
             return dist;
         }
 
-        public void serviceChanged(object sender , SelectionChangedEventArgs args)
+        public void serviceChanged(object sender, SelectionChangedEventArgs args)
         {
 
             int selectedIndex = servicesLB.SelectedIndex;
@@ -373,7 +397,7 @@ namespace SuppLocals
                         if (DistanceBetweenPlaces(service.location.Longitude, service.location.Latitude, myCurrLocation.Longitude, myCurrLocation.Latitude) <= circleRadius)
                         {
                             selectedIndex--;
-                            if(selectedIndex == -1)
+                            if (selectedIndex == -1)
                             {
                                 myMap.Center = service.location;
                             }
@@ -389,7 +413,7 @@ namespace SuppLocals
                 }
                 else
                 {
-                    foreach (Service service in servicesList[(int)filterServiceTypeCB.SelectedIndex-1])
+                    foreach (Service service in servicesList[(int)filterServiceTypeCB.SelectedIndex - 1])
                     {
                         if (DistanceBetweenPlaces(service.location.Longitude, service.location.Latitude, myCurrLocation.Longitude, myCurrLocation.Latitude) <= circleRadius)
                         {
@@ -404,19 +428,19 @@ namespace SuppLocals
                 }
             }
         }
-        
+
         private void radiusSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
 
             circleRadius = (float)radiusSlider.Value;
-            if(myMap != null)
-            updateServiceListAndMap(null, null);
-            
+            if (myMap != null)
+                updateServiceListAndMap(null, null);
+
         }
 
         public void distanceFilterChecked(object sender, RoutedEventArgs e)
         {
-            distanceFilterPanel.Visibility=Visibility.Visible;
+            distanceFilterPanel.Visibility = Visibility.Visible;
             circleRadius = radiusSlider.Value;
             updateServiceListAndMap(null, null);
         }
