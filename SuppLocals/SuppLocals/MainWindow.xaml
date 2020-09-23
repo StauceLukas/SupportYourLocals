@@ -34,75 +34,87 @@
         </TextBlock>
 
 
+
+
         <!--Menu-->
-        <ScrollViewer x:Name="sPan" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" MinWidth="150" Margin="5 0 5 0" Visibility="Collapsed">
+        <ScrollViewer x:Name="sPan" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" MinWidth="200" Margin="5 0 5 0" Visibility="Collapsed">
             <StackPanel  Orientation="Vertical">
 
-            <TextBlock Text="|Menu|" FontSize="30" HorizontalAlignment="Center" Margin="0 30 0 50"/>
+                <TextBlock Text="|Menu|" FontSize="30" HorizontalAlignment="Center" Margin="0 30 0 50"/>
 
-            <Button Width="150" Height="30" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"  Background ="LightGray" Click="servicesClick">Services
-                
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="4"/>
-                    </Style>
-                </Button.Resources>
-                
-            </Button>
+                <Button Width="150" Height="30" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"  Background ="LightGray" Click="servicesClick">Vendors
 
-            <!--Create PushPins-->
-            <!--Services list-->
-            <StackPanel Name="servicePanel" Grid.Column="1" Grid.Row="1" MinWidth="150" Orientation="Vertical" Margin="5 0 5 10" Visibility="Collapsed">
-                <TextBlock Text="Service type" Padding="5" HorizontalAlignment="Center" />
-                <ComboBox x:Name="createServiceCB"/>
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="4"/>
+                        </Style>
+                    </Button.Resources>
 
-                <TextBlock Text="Address" Padding="5" HorizontalAlignment="Center" />
-                <TextBox x:Name="addressTextBox" Height="20" TextWrapping="NoWrap"/>
-                <Button x:Name="confirmBtn" Click="addPushPin" Content="Confirm"/>
-            </StackPanel>
+                </Button>
 
+                <!--Create PushPins-->
+                <!--Services list-->
+                <StackPanel Name="servicePanel" Grid.Column="1" Grid.Row="1" MinWidth="150" Orientation="Vertical" Margin="5 0 5 10" Visibility="Collapsed">
+                    <TextBlock Text="Vendor type" Padding="5" HorizontalAlignment="Center" />
+                    <ComboBox x:Name="createServiceCB"/>
 
-            <Button Width="150" Height="30" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"  Background ="LightGray" Click="filterClick">Filters
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="4"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-
-         
-            <!--Filters-->
-
-            <StackPanel Name="filterPanel" Grid.Column="1" Grid.Row="4" MinWidth="150" Orientation="Vertical" Margin="5 0 5 10" Visibility="Collapsed">
-                <TextBlock Text="Filter:" Padding="5" HorizontalAlignment="Center" />
-                <ComboBox x:Name="filterServiceTypeCB" SelectionChanged="updateServiceListAndMap"/>
-                <CheckBox x:Name="filterDistanceCheck" Margin="0 10 0 0" Content="Filter by distance" Checked="distanceFilterChecked" Unchecked="distanceFilterUnchecked" />
-                <StackPanel x:Name="distanceFilterPanel" Margin="0 10 0 0" Visibility="Hidden">
-                    <TextBox TextAlignment="Center" Text="{Binding ElementName=radiusSlider , Path=Value, StringFormat=N2 }"/>
-                    <Slider x:Name="radiusSlider" Minimum="0" Maximum="20" Value="10" ValueChanged="radiusSlider_ValueChanged" Cursor="Hand" TickPlacement="None"/>
-                    <DockPanel>
-                        <TextBlock TextAlignment="Left" Text="{Binding ElementName=radiusSlider , Path=Minimum}"> km.</TextBlock>
-                        <TextBlock TextAlignment="Right" Text="{Binding ElementName=radiusSlider , Path=Maximum}"> km.</TextBlock>
-                    </DockPanel>
+                    <TextBlock Text="Address" Padding="5" HorizontalAlignment="Center" />
+                    <TextBox x:Name="addressTextBox" Height="20" TextWrapping="NoWrap"/>
+                    <Button x:Name="confirmBtn" Click="addPushPin" Content="Confirm"/>
                 </StackPanel>
 
+
+                <Button Width="150" Height="30" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"  Background ="LightGray" Click="filterClick">Filters
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="4"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+
+                <!--Filters-->
+
+                <StackPanel Name="filterPanel" Grid.Column="1" Grid.Row="4" MinWidth="150" Orientation="Vertical" Margin="5 0 5 10" Visibility="Collapsed">
+                    <TextBlock Text="Filter:" Padding="5" HorizontalAlignment="Center" />
+                    <ComboBox x:Name="filterServiceTypeCB" SelectionChanged="updateServiceListAndMap"/>
+                    <CheckBox x:Name="filterDistanceCheck" Margin="0 10 0 0" Content="Filter by distance" Checked="distanceFilterChecked" Unchecked="distanceFilterUnchecked" />
+                    <StackPanel x:Name="distanceFilterPanel" Margin="0 10 0 0" Visibility="Hidden">
+                        <TextBox TextAlignment="Center" Text="{Binding ElementName=radiusSlider , Path=Value, StringFormat=N2 }"/>
+                        <Slider x:Name="radiusSlider" Minimum="0" Maximum="20" Value="10" ValueChanged="radiusSlider_ValueChanged" Cursor="Hand" TickPlacement="None"/>
+                        <DockPanel>
+                            <TextBlock TextAlignment="Left" Text="{Binding ElementName=radiusSlider , Path=Minimum}"> km.</TextBlock>
+                            <TextBlock TextAlignment="Right" Text="{Binding ElementName=radiusSlider , Path=Maximum}"> km.</TextBlock>
+                        </DockPanel>
+                    </StackPanel>
+
+                </StackPanel>
+
+
+                <Button Width="150" Height="30" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"  Background ="LightGray" Click="reviewsClick">Reviews
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="4"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <StackPanel Name="reviewsPanel" Grid.Column="1" MinWidth="150" Height="100" Orientation="Vertical" Margin="5 0 5 10" Visibility="Collapsed">
+                    <Button Width="60" Height="auto"  FontSize="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Background ="LightGray" Click="MoreButtonClicked">More..
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="4"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+
+                <!-- About (help) button-->
+
+                <DockPanel>
+                    <Button DockPanel.Dock="Bottom" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Width="32" Height="25" FontSize="16" VerticalAlignment="Stretch" HorizontalAlignment="Left"  Background ="White">?</Button>
+                </DockPanel>
             </StackPanel>
-
-
-            <Button Width="150" Height="30" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"  Background ="LightGray" >Reviews
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="4"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-
-            <!-- About (help) button-->
-
-            <DockPanel>
-                <Button DockPanel.Dock="Bottom" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Width="32" Height="25" FontSize="16" VerticalAlignment="Stretch" HorizontalAlignment="Left"  Background ="White">?</Button>
-            </DockPanel>
-        </StackPanel>
         </ScrollViewer>
 
         <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Width="32" Height="25" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right"  Background ="LightGray" Click="buttonClick">☰</Button>
@@ -119,4 +131,3 @@
 
     </Grid>
 </Window>
-
