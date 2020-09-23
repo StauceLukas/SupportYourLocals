@@ -14,8 +14,7 @@ using SuppLocals.Services;
 
 
 using Windows.Devices.Geolocation;
-
-
+using System.ComponentModel;
 
 namespace SuppLocals
 {
@@ -465,12 +464,17 @@ namespace SuppLocals
 
         }
 
-
         public async void distanceFilterChecked(object sender, RoutedEventArgs e)
         {
 
             if(myCurrLocation == null) {
+                ProgressDialog progressDialog = new ProgressDialog();
+                Application.Current.Dispatcher.Invoke(new Action(() => this.IsEnabled = false));   
+                progressDialog.Dispatcher.BeginInvoke(new Action(() => progressDialog.ShowDialog()));
                 await getLivelocation();
+                Application.Current.Dispatcher.Invoke(new Action(() => this.IsEnabled = true));
+                progressDialog.Close();
+
                 if (myCurrLocation == null)
                 {
                     filterDistanceCheck.IsChecked = false;
