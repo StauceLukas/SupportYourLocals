@@ -39,6 +39,7 @@ namespace SuppLocals
         public double circleRadius = 0;
 
         public Microsoft.Maps.MapControl.WPF.Location myCurrLocation= null;
+        private double myCurrLocationRadius = 0.01;
 
         public MainWindow()
         {
@@ -160,7 +161,7 @@ namespace SuppLocals
         }
 
 
-        public void drawCircle(Microsoft.Maps.MapControl.WPF.Location Loc, double dRadius)
+        public void drawCircle(Microsoft.Maps.MapControl.WPF.Location Loc, double dRadius, Color fillColor)
         {
 
             var locCollection = new LocationCollection();
@@ -186,7 +187,7 @@ namespace SuppLocals
             }
             
             MapPolygon polygon = new MapPolygon();
-            polygon.Fill = new SolidColorBrush(Colors.AliceBlue);
+            polygon.Fill = new SolidColorBrush(fillColor);
             polygon.Stroke = new SolidColorBrush(Colors.Black);
             polygon.StrokeThickness = 1;
             polygon.Opacity = 0.65;
@@ -347,7 +348,12 @@ namespace SuppLocals
             }
             if ((bool)filterDistanceCheck.IsChecked)
             {
-                drawCircle(myCurrLocation, circleRadius);
+                //Filter circle
+                drawCircle(myCurrLocation, circleRadius, Color.FromRgb(240,248,255));
+
+                //Current location circle
+                drawCircle(myCurrLocation, myCurrLocationRadius, Color.FromRgb(0,0,255));
+
             }
         }
         public double DistanceBetweenPlaces(double lon1, double lat1, double lon2, double lat2)
@@ -445,6 +451,10 @@ namespace SuppLocals
             {
                 case GeolocationAccessStatus.Allowed:
 
+                    ProgressDialog progressDialog = new ProgressDialog();
+                    Application.Current.Dispatcher.Invoke(new Action(() => this.IsEnabled = false));
+                    _ = progressDialog.Dispatcher.BeginInvoke(new Action(() => progressDialog.ShowDialog()));
+
                     // If DesiredAccuracy or DesiredAccuracyInMeters are not set (or value is 0), DesiredAccuracy.Default is used.
                     Geolocator geolocator = new Geolocator { DesiredAccuracyInMeters = 0 };
 
@@ -452,6 +462,11 @@ namespace SuppLocals
                     Geoposition pos = await geolocator.GetGeopositionAsync();   
 
                     myCurrLocation = new Microsoft.Maps.MapControl.WPF.Location(pos.Coordinate.Point.Position.Latitude, pos.Coordinate.Point.Position.Longitude);
+
+                    Application.Current.Dispatcher.Invoke(new Action(() => this.IsEnabled = true));
+                    progressDialog.Close();
+
+
                     break;
                 default:
                     MessageBox.Show("We can't reach your location. Please check that the following location privacy are turned on:\n" +
@@ -468,22 +483,16 @@ namespace SuppLocals
         {
 
             if(myCurrLocation == null) {
-                ProgressDialog progressDialog = new ProgressDialog();
-                Application.Current.Dispatcher.Invoke(new Action(() => this.IsEnabled = false));   
-                progressDialog.Dispatcher.BeginInvoke(new Action(() => progressDialog.ShowDialog()));
-                await getLivelocation();
-                Application.Current.Dispatcher.Invoke(new Action(() => this.IsEnabled = true));
-                progressDialog.Close();
-
+               await getLivelocation();
                 if (myCurrLocation == null)
                 {
                     filterDistanceCheck.IsChecked = false;
                     return;
                 }
             }
-
             distanceFilterPanel.Visibility=Visibility.Visible;
             circleRadius = radiusSlider.Value;
+            myMap.Center = myCurrLocation;
             updateServiceListAndMap(null, null);
         }
 
