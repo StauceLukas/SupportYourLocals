@@ -17,13 +17,14 @@ namespace SuppLocals
     /// </summary>
     public partial class ReviewsWindow : Window
     {
+        public List<Review> reviewsList = new List<Review>();
+
         public ReviewsWindow()
         {
             InitializeComponent();
         }
+
+
     }
-
-
-
 
 }
