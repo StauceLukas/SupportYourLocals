@@ -452,6 +452,7 @@ namespace SuppLocals
                 case GeolocationAccessStatus.Allowed:
 
                     ProgressDialog progressDialog = new ProgressDialog();
+                    progressDialog.Owner = this;
                     Application.Current.Dispatcher.Invoke(new Action(() => this.IsEnabled = false));
                     _ = progressDialog.Dispatcher.BeginInvoke(new Action(() => progressDialog.ShowDialog()));
 
